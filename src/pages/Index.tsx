@@ -108,39 +108,72 @@ const Index = () => {
       <div className="px-6 pb-20">
         {currentView === 'dashboard' && (
           <>
-            {/* Main Progress Ring */}
+            {/* Main Progress Ring with separated metrics */}
             <div className="flex justify-center mb-8">
               <div className="relative">
+                {/* Outer Ring - Steps */}
                 <ProgressRing
                   progress={75}
                   size={280}
                   strokeWidth={20}
                   color="rgb(var(--progress-steps))"
-                  label="Steps"
-                  value="12,847"
-                  unit="steps"
+                  label=""
+                  value=""
+                  unit=""
+                  showText={false}
                 />
+                {/* Middle Ring - Calories */}
                 <div className="absolute inset-0" style={{ transform: 'scale(0.75)' }}>
                   <ProgressRing
                     progress={60}
                     size={280}
                     strokeWidth={20}
                     color="rgb(var(--progress-calories))"
-                    label="Calories"
-                    value="2,340"
-                    unit="kcal"
+                    label=""
+                    value=""
+                    unit=""
+                    showText={false}
                   />
                 </div>
+                {/* Inner Ring - Distance */}
                 <div className="absolute inset-0" style={{ transform: 'scale(0.5)' }}>
                   <ProgressRing
                     progress={90}
                     size={280}
                     strokeWidth={20}
                     color="rgb(var(--progress-distance))"
-                    label="Distance"
-                    value="8.4"
-                    unit="km"
+                    label=""
+                    value=""
+                    unit=""
+                    showText={false}
                   />
+                </div>
+                {/* Central text display */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <div className="text-6xl font-black gradient-text animate-count-up">
+                    12,847
+                  </div>
+                  <div className="text-lg font-medium text-muted-foreground">
+                    Steps Today
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Legend for the rings */}
+            <div className="flex justify-center mb-8">
+              <div className="flex space-x-6">
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-steps))' }}></div>
+                  <span className="text-sm font-medium">Steps (75%)</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-calories))' }}></div>
+                  <span className="text-sm font-medium">Calories (60%)</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-distance))' }}></div>
+                  <span className="text-sm font-medium">Distance (90%)</span>
                 </div>
               </div>
             </div>

@@ -10,6 +10,7 @@ interface ProgressRingProps {
   label: string;
   value: string;
   unit: string;
+  showText?: boolean;
 }
 
 const ProgressRing: React.FC<ProgressRingProps> = ({
@@ -20,7 +21,8 @@ const ProgressRing: React.FC<ProgressRingProps> = ({
   backgroundColor = "rgb(var(--muted))",
   label,
   value,
-  unit
+  unit,
+  showText = true
 }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
@@ -58,17 +60,19 @@ const ProgressRing: React.FC<ProgressRingProps> = ({
           className="transition-all duration-1000 ease-out"
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <div className="text-huge font-black gradient-text animate-count-up">
-          {value}
+      {showText && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+          <div className="text-huge font-black gradient-text animate-count-up">
+            {value}
+          </div>
+          <div className="text-sm font-medium text-muted-foreground -mt-2">
+            {unit}
+          </div>
+          <div className="text-xs font-medium text-muted-foreground mt-1">
+            {label}
+          </div>
         </div>
-        <div className="text-sm font-medium text-muted-foreground -mt-2">
-          {unit}
-        </div>
-        <div className="text-xs font-medium text-muted-foreground mt-1">
-          {label}
-        </div>
-      </div>
+      )}
     </div>
   );
 };
