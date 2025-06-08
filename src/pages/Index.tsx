@@ -150,10 +150,10 @@ const Index = () => {
                 </div>
                 {/* Central text display */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <div className="text-6xl font-black gradient-text animate-count-up">
+                  <div className="text-5xl font-black text-foreground animate-count-up">
                     12,847
                   </div>
-                  <div className="text-lg font-medium text-muted-foreground">
+                  <div className="text-base font-semibold text-muted-foreground mt-1">
                     Steps Today
                   </div>
                 </div>
