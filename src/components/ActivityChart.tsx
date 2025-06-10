@@ -17,10 +17,10 @@ const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
     if (active && payload && payload.length) {
       return (
         <div className="neumorphism dark:neumorphism-dark rounded-xl p-3 border-0">
-          <p className="text-sm font-medium">{label}</p>
+          <p className="text-sm font-medium">{label}曜日</p>
           {payload.map((entry: any, index: number) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
-              {entry.dataKey}: {entry.value}
+              {entry.dataKey === 'calories' ? 'カロリー' : '歩数'}: {entry.value}
             </p>
           ))}
         </div>
@@ -31,7 +31,7 @@ const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
 
   return (
     <div className="neumorphism dark:neumorphism-dark rounded-3xl p-6 animate-fade-in">
-      <h3 className="text-lg font-semibold mb-4">Activity Overview</h3>
+      <h3 className="text-lg font-semibold mb-4">アクティビティ概要</h3>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>

@@ -30,7 +30,7 @@ const WorkoutTimer: React.FC<WorkoutTimerProps> = ({ isActive, onToggle, onStop 
   return (
     <div className={`min-h-screen gradient-primary flex flex-col items-center justify-center text-white ${isActive ? 'pulse-slow' : ''}`}>
       <div className="text-center space-y-8">
-        <h2 className="text-2xl font-semibold opacity-90">Workout Timer</h2>
+        <h2 className="text-2xl font-semibold opacity-90">ワークアウトタイマー</h2>
         
         <div className="text-huge font-black animate-count-up">
           {formatTime(time)}

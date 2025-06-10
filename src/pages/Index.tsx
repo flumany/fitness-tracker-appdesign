@@ -15,13 +15,13 @@ const Index = () => {
 
   // Sample data
   const chartData = [
-    { day: 'Mon', calories: 420, steps: 8500 },
-    { day: 'Tue', calories: 380, steps: 7200 },
-    { day: 'Wed', calories: 520, steps: 12000 },
-    { day: 'Thu', calories: 440, steps: 9300 },
-    { day: 'Fri', calories: 600, steps: 15000 },
-    { day: 'Sat', calories: 350, steps: 6800 },
-    { day: 'Sun', calories: 480, steps: 10500 },
+    { day: '月', calories: 420, steps: 8500 },
+    { day: '火', calories: 380, steps: 7200 },
+    { day: '水', calories: 520, steps: 12000 },
+    { day: '木', calories: 440, steps: 9300 },
+    { day: '金', calories: 600, steps: 15000 },
+    { day: '土', calories: 350, steps: 6800 },
+    { day: '日', calories: 480, steps: 10500 },
   ];
 
   const handleStartWorkout = () => {
@@ -75,8 +75,8 @@ const Index = () => {
       {/* Header */}
       <header className="flex items-center justify-between p-6">
         <div>
-          <h1 className="text-2xl font-bold gradient-text">FitTracker</h1>
-          <p className="text-sm text-muted-foreground">Let's crush your goals today!</p>
+          <h1 className="text-2xl font-bold gradient-text">フィットトラッカー</h1>
+          <p className="text-sm text-muted-foreground">今日も目標を達成しましょう！</p>
         </div>
         <div className="flex items-center space-x-4">
           <ThemeToggle />
@@ -89,7 +89,7 @@ const Index = () => {
                   : 'bg-secondary text-secondary-foreground'
               }`}
             >
-              Dashboard
+              ダッシュボード
             </button>
             <button
               onClick={() => setCurrentView('stats')}
@@ -99,7 +99,7 @@ const Index = () => {
                   : 'bg-secondary text-secondary-foreground'
               }`}
             >
-              Stats
+              統計
             </button>
           </div>
         </div>
@@ -154,7 +154,7 @@ const Index = () => {
                     12,847
                   </div>
                   <div className="text-base font-semibold text-muted-foreground mt-1">
-                    Steps Today
+                    今日の歩数
                   </div>
                 </div>
               </div>
@@ -165,15 +165,15 @@ const Index = () => {
               <div className="flex space-x-6">
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-steps))' }}></div>
-                  <span className="text-sm font-medium">Steps (75%)</span>
+                  <span className="text-sm font-medium">歩数 (75%)</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-calories))' }}></div>
-                  <span className="text-sm font-medium">Calories (60%)</span>
+                  <span className="text-sm font-medium">カロリー (60%)</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 rounded-full" style={{ backgroundColor: 'rgb(var(--progress-distance))' }}></div>
-                  <span className="text-sm font-medium">Distance (90%)</span>
+                  <span className="text-sm font-medium">距離 (90%)</span>
                 </div>
               </div>
             </div>
@@ -181,31 +181,31 @@ const Index = () => {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <StatCard
-                title="Active Minutes"
+                title="アクティブ時間"
                 value="94"
-                unit="min"
+                unit="分"
                 progress={78}
                 icon={<Timer size={24} />}
                 trend="up"
                 trendValue="12%"
               />
               <StatCard
-                title="Heart Rate"
+                title="心拍数"
                 value="146"
                 unit="bpm"
                 icon={<Activity size={24} />}
                 trend="neutral"
               />
               <StatCard
-                title="Workout Streak"
+                title="継続日数"
                 value="7"
-                unit="days"
+                unit="日"
                 icon={<Target size={24} />}
                 trend="up"
                 trendValue="2"
               />
               <StatCard
-                title="Energy Burned"
+                title="消費カロリー"
                 value="2,340"
                 unit="kcal"
                 progress={85}
@@ -222,16 +222,16 @@ const Index = () => {
 
         {currentView === 'stats' && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold gradient-text">Statistics</h2>
+            <h2 className="text-2xl font-bold gradient-text">統計</h2>
             
             {/* Weekly Overview */}
             <div className="neumorphism dark:neumorphism-dark rounded-3xl p-6">
               <h3 className="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <TrendingUp size={20} />
-                <span>Weekly Overview</span>
+                <span>週間概要</span>
               </h3>
               <div className="grid grid-cols-7 gap-3">
-                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => {
+                {['日', '月', '火', '水', '木', '金', '土'].map((day, index) => {
                   const intensity = Math.random();
                   return (
                     <div key={index} className="text-center">
@@ -255,7 +255,7 @@ const Index = () => {
               <div className="neumorphism dark:neumorphism-dark rounded-3xl p-6">
                 <div className="text-center">
                   <div className="text-huge font-black gradient-text">85%</div>
-                  <div className="text-sm text-muted-foreground">Monthly Goal</div>
+                  <div className="text-sm text-muted-foreground">月間目標</div>
                   <div className="mt-2 w-full bg-muted rounded-full h-2">
                     <div className="gradient-primary h-2 rounded-full w-[85%]" />
                   </div>
@@ -265,14 +265,14 @@ const Index = () => {
               <div className="neumorphism dark:neumorphism-dark rounded-3xl p-6">
                 <div className="text-center">
                   <div className="text-huge font-black gradient-text">23</div>
-                  <div className="text-sm text-muted-foreground">Workouts This Month</div>
+                  <div className="text-sm text-muted-foreground">今月のワークアウト</div>
                 </div>
               </div>
               
               <div className="neumorphism dark:neumorphism-dark rounded-3xl p-6">
                 <div className="text-center">
                   <div className="text-huge font-black gradient-text">7.2</div>
-                  <div className="text-sm text-muted-foreground">Avg Daily Hours</div>
+                  <div className="text-sm text-muted-foreground">1日平均時間</div>
                 </div>
               </div>
             </div>
